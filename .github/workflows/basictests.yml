@@ -1,0 +1,35 @@
+name: Bash Script Basic Tests
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  lab9-basic-tests
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Check out the code into the GitHub runner
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      #Step 2: Ensure runner has latest Python 3
+      - name: Python set up
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      # Step 3: Ensure runner has permission to execute the bash script
+      name: Make script executable
+      run: chmod +x validate-data.sh
+
+      # Step 4: Testing the 3 tests
+      - name: Test Case 1
+        run: ./validate-data.sh "pearse mccarthy" "0831122334"
+
+      - name: Test Case 2
+        run: ./validate-data.sh "pearse mccarthy" "08311223344"
+
+      - name: Test Case 3
+        run: ./validate-data.sh "pearseT mccarthy" "0831122334"
