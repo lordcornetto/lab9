@@ -3,7 +3,7 @@ name: Bash Script Basic Tests
 on:
   push:
     branches:
-      - main
+      - test
 
 jobs:
   lab9-basic-tests:

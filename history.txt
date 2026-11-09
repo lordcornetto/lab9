@@ -1,0 +1,63 @@
+  501  gh repo create lab9 --public
+  502  ls
+  503  cd devops
+  504  ls
+  505  mkdir week9
+  506  rmdir week9
+  507  mkdir lab9
+  508  cd lab9
+  509  echo > validate-data.sh
+  510  vi validate-data.sh
+  511  nano validate-data.sh
+  512  cat validate-data.sh
+  513  bash validate-data.sh "pearse mccarthy" "0831122334"
+  514  bash validate-data.sh "pearse mccarthy" "08311223344"
+  515  bash validate-data.sh "pearseT mccarthy" "0831122334"
+  516  ls
+  517  git init
+  518  git remote add origin git@github.com:lordcornetto/lab9.git
+  519  git branch -m main
+  520  ls -a
+  521  cd .git
+  522  ls -a
+  523  cd ..
+  524  mkdir .github/workflows
+  525  mkdir .github
+  526  cd .github
+  527  mkdir workflows
+  528  cd workflows
+  529  echo > basictests.yml
+  530  nano basictests.yml
+  531  cd ../..
+  532  ls
+  533  git add validate-data.sh .github/workflows/basictests.yml
+  534  git commit -m "Push the repo - added validate data sh and basic tests yaml script files"
+  535  git push origin main
+  536  cd .github/workflows
+  537  nano basictests.yml
+  538  cat basictests.yml
+  539  git add .github/workflows/basictests.yml
+  540  cd ../..
+  541  git add .github/workflows/basictests.yml
+  542  git commit -m "Fixed typo on line 10 of yaml script file"
+  543  git push origin main
+  544  cd .github/workflows
+  545  nano basictests.yml
+  546  cd ../..
+  547  git add .github/workflows/basictests.yml
+  548  git commit -m "Fixed error on line 13 of yaml script file"
+  549  git push -u origin main
+  550  git checkout -b test
+  551  ls
+  552  nano validate-data.sh
+  553  git add validate-data.sh .github/workflows/basictests.yml
+  554  git commit -m "Changed name length from 15 to 20 characters"
+  555  git push origin test
+  556  cd .github/workflows
+  557  nano basictests.yml
+  558  git add .github/workflows/basictests.yml
+  559  cd ../..
+  560  git add .github/workflows/basictests.yml
+  561  git commit -m "Fixed yaml file by changing the branches value from main to test"
+  562  git push origin test
+  563  history>history.txt
